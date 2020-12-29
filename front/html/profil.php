@@ -74,7 +74,7 @@
                 border-radius: 0 30px;
                 border: solid 0.1rem;
                 border-color: #222831;
-                box-shadow: 2px 2px;
+                box-shadow: 2px 3px;
             }
             .header-block {
                 font-size: 2em;

@@ -31,7 +31,13 @@ body{
 }
 
 #navbar nav a{
-    color: white !important;
+    color: white;
+    padding: 3vh 0;
+    text-align: center;
+}
+
+#navbar nav a:hover{
+    background-color: #515966;
 }
 
 #content {

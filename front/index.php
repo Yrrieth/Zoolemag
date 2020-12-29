@@ -40,14 +40,15 @@
 			</div>
 
 			<div id="navbar" class="container-fluid p-0">
-				<nav class="navbar navbar-expand-lg navbar-dark bg-dark m-0 justify-content-around">
-					<a href="#" class="nav-link">Actualité</a>
-					<a href="#" class="nav-link">Interview</a>
-					<a href="#" class="nav-link">BD</a>
-					<a href="#" class="nav-link">Comic</a>
-					<a href="#" class="nav-link">Manga</a>
-					<a href="#" class="nav-link">Animation</a>
-					<a href="#" class="nav-link">Le Mag</a>
+				<nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex m-0 py-0 justify-content-around">
+					<a href="#" class="nav-link col">Actualité</a>
+					<a href="#" class="nav-link col">Interview</a>
+					<a href="#" class="nav-link col">BD</a>
+					<a href="#" class="nav-link col">Comic</a>
+					<a href="#" class="nav-link col">Manga</a>
+					<a href="#" class="nav-link col">Animation</a>
+					<a href="#" class="nav-link col">Le Mag</a>
+					<a href="#" class="nav-link col bg-danger">S'abonner</a>
 				</nav>
 			</div>
 
