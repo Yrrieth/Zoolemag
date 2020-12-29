@@ -68,12 +68,9 @@
 
             .block {
                 background-color: #FFFFFF;
-                margin: 2vh 1vw;
+                margin: 2vh 10vw;
                 padding: 2vh 3vw;
-                border-radius: 0 30px;
-                border: solid 0.1rem;
-                border-color: #222831;
-                box-shadow: 1px 3px;
+                border-radius: 10px 10px;
             }
             .header-block {
                 font-size: 2em;
@@ -81,9 +78,7 @@
                 margin: 0 0 2vh;
                 font-weight: bold;
             }
-            .block div:not(:first-child) {
-                border-top: dotted 0.1rem;
-            }
+
             .block div p{
                 display : inline-flex;
                 flex-direction: row;
@@ -99,7 +94,7 @@
             if (isset($_SESSION['pseudo']) && isset($_SESSION['email'])) {
                 $pseudo = $_SESSION['pseudo'];
                 echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1 justify-content-start" style="box-shadow: 0px 0px 10px;">
-                <a href="" class="nav-link btn btn-danger mx-1 py-0" role="button">' . $pseudo . '</a>
+                <a href="profil.php" class="nav-link btn btn-danger mx-1 py-0" role="button">' . $pseudo . '</a>
                 <a href="" class="nav-link btn btn-danger mx-1 py-0" role="button">Ma collection</a>
                 <a href="html/deconnexion.php" class="nav-link btn btn-danger mx-1 py-0 ml-auto" role="button">Déconnexion</a>
                 </nav>';
@@ -125,19 +120,50 @@
                         <div class="container flex-column">
                             <h1 class="text-white"><?php echo $_SESSION['pseudo'];?></h1>
                             <hr>
-                            <div>
-                                <a href="modifier_profil.php" class="btn btn-secondary">Modifier le profil</a>
-                            </div>
-                            
                         
                         </div>
                         
                         
                             
                     </div>
+                    <div id="navbar" class="container-fluid p-0">
+                        <nav class="navbar-nav collapse navbar-collapse navbar-expand-lg navbar-dark bg-dark d-flex m-0 py-0 justify-content-around">
+                            <a href="#" class="nav-link col">Mon profil</a>
+                            <a href="#" class="nav-link col">Ma collection</a>
+                            <a href="#" class="nav-link col">Mes articles favoris</a>
+                        </nav>
+                    </div>
 
+                    <div>
+                        <form class="block my-4" method="post" action="<?php //echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                            
+                            <div class="form-group row">
+								<label for="pseudo" class="col">Pseudo</label>
+								<div class="col column">
+									<input name="pseudo" type="text" class="form-control col" id="pseudo" aria-describedby="pseudo" placeholder="Pseudonyme" value="<?php echo $_SESSION['pseudo'];?>">
+								</div>
+							</div>
+							
+							<div class="form-group row">
+								<label for="email" class="col">Adresse E-mail</label>
+								<div class="col column">
+									<input name="email" type="email" class="form-control col" id="email" aria-describedby="email" placeholder="E-mail" value="<?php echo $_SESSION['email'];?>">
+									<small id="emailHelp" class="form-text text-muted">Exemple : adresse@mail.fr</small>
+								</div>
+                            </div>
+                            <div class="form-group row">
+								<label for="mot_de_passe" class="col">Mot de passe</label>
+								<div class="col">
+									<input name="mot_de_passe" type="password" class="form-control" id="motDePasse" placeholder="Mot de passe">
+								</div>
+                            </div>
+
+                            <button type="submit" class="btn btn-danger">Mettre à jour</button>
+                        </form>
+                    </div>
+                    
                     <div class="row">
-                        <div class="col">
+                        <div class="col-lg">
                             <div class="block flex-column">
                                 <div class="header-block">Votre profil</div>
                                 <hr>
@@ -149,41 +175,6 @@
                                     <p>Email  :  </p>
                                     <p><?php echo $_SESSION['email'];?></p>
                                 </div>
-                            </div>
-                            <div class="block flex-column">
-                                <div class="header-block">Vos commentaires</div>
-                                <hr>
-                                <div>
-                                    <p>Pseudo : </p>
-                                    <p><?php echo $_SESSION['pseudo'];?></p>
-                                </div>
-                                <div>
-                                    <p>Email  :  </p>
-                                    <p><?php echo $_SESSION['email'];?></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg">
-                            <div class="block flex-column">
-                                <div class="header-block">Votre collection</div>
-                                <hr>
-                                <div>
-                                    <p>Pseudo : </p>
-                                    <p><?php echo $_SESSION['pseudo'];?></p>
-                                </div>
-                                <div>
-                                    <p>Email  :  </p>
-                                    <p><?php echo $_SESSION['email'];?></p>
-                                </div>
-                            </div>
-                            <div class="block flex-column">
-                                <div class="header-block">Votre articles favoris</div>
-                                <hr>
-                                <div>
-                                    <p>Pseudo : </p>
-                                    <p><?php echo $_SESSION['pseudo'];?></p>
-                                </div>
-                                
                             </div>
                         </div>
                     </div>

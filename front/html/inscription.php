@@ -119,15 +119,15 @@
 					<form class="my-4" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 						<h1>Inscription</h1>
                         <div class="form-group">
-                          <label for="email">Adresse E-mail</label>
-                          <input name="email" type="email" class="form-control" id="email" aria-describedby="email" placeholder="E-mail" value="<?php echo $email; ?>">
-                          <small id="emailHelp" class="form-text text-muted">Exemple : adresse@mail.fr</small>
-						  <?php echo '<span class="error">'. $emailErr .'</span>'; ?>
+                        	<label for="email">Adresse E-mail</label>
+                    		<input name="email" type="email" class="form-control" id="email" aria-describedby="email" placeholder="E-mail" value="<?php echo $email; ?>">
+                        	<small id="emailHelp" class="form-text text-muted">Exemple : adresse@mail.fr</small>
+							<?php echo '<span class="error">'. $emailErr .'</span>'; ?>
                         </div>
                         <div class="form-group">
-                          <label for="mot_de_passe">Mot de passe</label>
-                          <input name="mot_de_passe" type="password" class="form-control" id="motDePasse" placeholder="Mot de passe">
-						  <?php echo '<span class="error">'. $passErr .'</span>'; ?>
+                        	<label for="mot_de_passe">Mot de passe</label>
+                        	<input name="mot_de_passe" type="password" class="form-control" id="motDePasse" placeholder="Mot de passe">
+							<?php echo '<span class="error">'. $passErr .'</span>'; ?>
                         </div>
                         <div class="form-group">
                             <label for="pseudo">Pseudo</label>

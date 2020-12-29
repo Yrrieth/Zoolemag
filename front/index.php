@@ -40,7 +40,7 @@
 			</div>
 
 			<div id="navbar" class="container-fluid p-0">
-				<nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex m-0 py-0 justify-content-around">
+				<nav class="navbar-nav collapse navbar-collapse navbar-expand-lg navbar-dark bg-dark d-flex m-0 py-0 justify-content-around">
 					<a href="#" class="nav-link col">Actualité</a>
 					<a href="#" class="nav-link col">Interview</a>
 					<a href="#" class="nav-link col">BD</a>
