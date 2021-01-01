@@ -47,7 +47,7 @@
 				}
 
 				if ($emailBool && $passBool) {
-					require '../../back/sql_connect.php';
+					require '../../back/query/sql_connect.php';
 
 					$email = $_POST["email"];
 					$pass = $_POST["mot_de_passe"];
@@ -60,8 +60,9 @@
 							if (password_verify($pass, $row['mot_de_passe'])) {
 								$_SESSION['pseudo'] = $row['pseudo'];
 								$_SESSION['email'] = $row['email'];
+								$_SESSION['id'] = $row['id_abonne'];
 								//echo $_SESSION['pseudo'] . " " . $_SESSION['email'];
-								header("Location: ../index.php");
+								header("Location: index.php");
 								exit();
 							} else {
 								$emailErr = "Saisie incorrecte.";
@@ -85,19 +86,12 @@
 				return $data;
 			}
 		?>
-		<!--<div class="header container-fluid p-0" style="display: block; position: fixed;z-index: 9999;">-->
-		<div class="container-fluid p-0 sticky-top">
-			<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1" style="justify-content: flex-end;box-shadow: 0px 0px 10px;">
-				<a href="inscription.php" class="nav-link btn btn-danger mx-1 py-0">Inscription</a>
-				<a href="" class="nav-link btn btn-danger mx-1 py-0">Connexion</a>
-			</nav>
-		</div>
-
+		
+		<?php require '../component/sticky-header.php';?>
 
 		<div id="wrapper">
-			<div id="header" class="d-flex container-fluid mb-0 p-0">
-				<a href="../index.php"><img src="../image/logo.png" alt="Logo du site" title="Logo du site Zoolemag"></a>
-			</div>
+			<?php require '../component/header.php';?>
+
 
 			<div id="content" class="container">
 				<div>

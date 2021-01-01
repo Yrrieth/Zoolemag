@@ -70,10 +70,7 @@
                 background-color: #FFFFFF;
                 margin: 2vh 1vw;
                 padding: 2vh 3vw;
-                border-radius: 0 30px;
-                border: solid 0.1rem;
-                border-color: #222831;
-                box-shadow: 1px 3px;
+                border-radius: 10px 10px;
             }
             .header-block {
                 font-size: 2em;
@@ -93,25 +90,12 @@
 
 	<body>
 		
-    <div id="sticky-header" class="container-fluid p-0 sticky-top">
-			
-        <?php
-            if (isset($_SESSION['pseudo']) && isset($_SESSION['email'])) {
-                $pseudo = $_SESSION['pseudo'];
-                echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1 justify-content-start" style="box-shadow: 0px 0px 10px;">
-                <a href="" class="nav-link btn btn-danger mx-1 py-0" role="button">' . $pseudo . '</a>
-                <a href="" class="nav-link btn btn-danger mx-1 py-0" role="button">Ma collection</a>
-                <a href="html/deconnexion.php" class="nav-link btn btn-danger mx-1 py-0 ml-auto" role="button">Déconnexion</a>
-                </nav>';
-            }
-        ?>
-        
-    </div>
+        <?php require '../component/sticky-header.php';?>
 
-    <div id="wrapper">
-            <div id="header" class="d-flex container-fluid mb-0 p-0">
-                <a href="../index.php"><img src="../image/logo.png" alt="Logo du site" title="Logo du site Zoolemag"></a>
-            </div>
+
+        <div id="wrapper">
+            <?php require '../component/header.php';?>
+
 
 			<div id="content" class="container">
                 
@@ -164,18 +148,6 @@
                             </div>
                         </div>
                         <div class="col-lg">
-                            <div class="block flex-column">
-                                <div class="header-block">Votre collection</div>
-                                <hr>
-                                <div>
-                                    <p>Pseudo : </p>
-                                    <p><?php echo $_SESSION['pseudo'];?></p>
-                                </div>
-                                <div>
-                                    <p>Email  :  </p>
-                                    <p><?php echo $_SESSION['email'];?></p>
-                                </div>
-                            </div>
                             <div class="block flex-column">
                                 <div class="header-block">Votre articles favoris</div>
                                 <hr>

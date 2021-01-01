@@ -27,7 +27,17 @@ body{
 
 #header{
     background-color: #D80011;
-    height:150px;
+    height:120px;
+}
+
+#button-search {
+    background-color: #f05454;
+    color : white;
+}
+
+#button-search:hover {
+    background-color: #b32424;
+    color : white;
 }
 
 #navbar nav a{
