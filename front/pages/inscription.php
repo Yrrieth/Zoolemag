@@ -68,6 +68,7 @@
 					$email = $_POST["email"];
 					$motDePasse = password_hash($_POST["mot_de_passe"], PASSWORD_DEFAULT);
 					$pseudo = $_POST["pseudo"];
+					$role = 'utilisateur';
 
 					$sql = "SELECT * FROM abonne WHERE email = '$email'";
 
@@ -75,13 +76,15 @@
 						if ($result->num_rows >= 1) {
 							$emailErr = "Adresse mail non disponible.";
 						} else {
-							$sql = "INSERT INTO abonne(email, mot_de_passe, pseudo) VALUES ('$email', '$motDePasse', '$pseudo')";
+							$sql = "INSERT INTO abonne(email, mot_de_passe, pseudo, role) VALUES ('$email', '$motDePasse', '$pseudo', '$role')";
 
 							if (mysqli_query($connection, $sql)) {
 								$_SESSION['pseudo'] = $pseudo;
 								$_SESSION['email'] = $email;
+								$_SESSION['id'] = $row['id_abonne'];
+								$_SESSION['role'] = $role;
 								echo 'Success sign up';
-								header("Location: ../index.php");
+								header("Location: index.php");
 								exit();
 							} else {
 								echo 'Failed sign up';

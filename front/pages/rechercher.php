@@ -6,9 +6,16 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE-edge">
 		<meta charset="utf-8">
-		<title>Bandes dessinées, Manga, Actualités BD sur zoolemag.com</title>
+		<title>Rechercher - zoolemag</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel="stylesheet" media="screen" href="../css/style.css">
+		<style>
+			.image_recherche {
+				display: block;
+				width: 100%;
+				height: auto;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -28,11 +35,28 @@
 			</div>
 
 			<div id="content" class="container">
-				<div>Blablabla</div>
-				<?php 
-					if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
-						echo $_SESSION['id'];
-						echo $_SESSION['role'];
+				<?php
+					if (isset($_POST['recherche'])) {
+						// Dans le cas où on appuie sur le bouton "rechercher" après avoir déjà rempli le formulaire de recherche
+						if ($_POST['recherche'] == '') {
+							unset($_POST['recherche']);
+							echo "Veuillez remplir la barre de recherche.";
+						} else {
+							echo '<div>Vous recherchez : ' . htmlspecialchars(html_entity_decode($_POST['recherche'])) . '</div>';
+							$recherche = $_POST['recherche'];
+
+							require '../../back/query/correcteur_orthographe.php';
+							require '../../back/query/recherche.php';
+						}
+						
+					} else 
+					if (isset($_GET['q'])) {
+						echo '<div>Vous recherchez : ' . htmlspecialchars(html_entity_decode($_GET['q'])) . '</div>';
+						$recherche = $_GET['q'];
+
+						require '../../back/query/recherche.php';
+					} else {
+						echo "Veuillez remplir la barre de recherche.";
 					}
 				?>
 			</div>

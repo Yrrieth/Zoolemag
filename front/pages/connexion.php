@@ -61,6 +61,7 @@
 								$_SESSION['pseudo'] = $row['pseudo'];
 								$_SESSION['email'] = $row['email'];
 								$_SESSION['id'] = $row['id_abonne'];
+								$_SESSION['role'] = $row['role'];
 								//echo $_SESSION['pseudo'] . " " . $_SESSION['email'];
 								header("Location: index.php");
 								exit();
