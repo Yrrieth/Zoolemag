@@ -28,11 +28,9 @@
 			</div>
 
 			<div id="content" class="container">
-				<div>Blablabla</div>
 				<?php 
 					if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
-						echo $_SESSION['id'];
-						echo $_SESSION['role'];
+						echo 'ID : ' . $_SESSION['id'];
 					}
 				?>
 			</div>

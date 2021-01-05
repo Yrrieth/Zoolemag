@@ -79,13 +79,21 @@
 							$sql = "INSERT INTO abonne(email, mot_de_passe, pseudo, role) VALUES ('$email', '$motDePasse', '$pseudo', '$role')";
 
 							if (mysqli_query($connection, $sql)) {
-								$_SESSION['pseudo'] = $pseudo;
-								$_SESSION['email'] = $email;
-								$_SESSION['id'] = $row['id_abonne'];
-								$_SESSION['role'] = $role;
-								echo 'Success sign up';
-								header("Location: index.php");
-								exit();
+								$sql = "SELECT * FROM abonne WHERE email = '$email'";
+
+								if ($result = mysqli_query($connection, $sql)) {
+									if ($result->num_rows > 0) {
+										$row = $result->fetch_assoc();
+										$_SESSION['pseudo'] = $row['pseudo'];
+										$_SESSION['email'] = $row['email'];
+										$_SESSION['id'] = $row['id_abonne'];
+										$_SESSION['role'] = $row['role'];
+
+										echo 'Success sign up';
+										header("Location: index.php");
+										exit();
+									}
+								}
 							} else {
 								echo 'Failed sign up';
 							}
